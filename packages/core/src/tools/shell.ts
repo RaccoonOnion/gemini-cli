@@ -351,7 +351,7 @@ export class ShellToolInvocation extends BaseToolInvocation<
           this.context.config.getEnableInteractiveShell(),
           {
             ...shellExecutionConfig,
-            sessionId: this.context.config.getSessionId(),
+            sessionId: this.context.config?.getSessionId?.() ?? 'default',
             pager: 'cat',
             sanitizationConfig:
               shellExecutionConfig?.sanitizationConfig ??
