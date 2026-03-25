@@ -359,6 +359,7 @@ export class ShellToolInvocation extends BaseToolInvocation<
             additionalPermissions: this.params[PARAM_ADDITIONAL_PERMISSIONS],
             backgroundCompletionBehavior:
               this.context.config.getShellBackgroundCompletionBehavior(),
+            originalCommand: strippedCommand,
           },
         );
 
