@@ -3,10 +3,8 @@
   "repository": {
     "name": "kubernetes/kubernetes",
     "commit_sha": "TODO_PIN_COMMIT",
-    "languages": [
-      "go"
-    ],
-    "loc": 0,
+    "languages": ["go"],
+    "loc": 36529050,
     "setup_commands": []
   },
   "problem": {
@@ -28,9 +26,7 @@
       "pkg/kubelet/cm/cpumanager/policy_static.go"
     ],
     "estimated_context_tokens": 53630,
-    "anti_shortcut_tags": [
-      "retrieval_trap"
-    ]
+    "anti_shortcut_tags": ["retrieval_trap"]
   },
   "ground_truth": {
     "gold_patch": "TODO: extract from PR #134768",

@@ -3,10 +3,8 @@
   "repository": {
     "name": "rust-lang/rust",
     "commit_sha": "TODO_PIN_COMMIT",
-    "languages": [
-      "rust"
-    ],
-    "loc": 0,
+    "languages": ["rust"],
+    "loc": 21643275,
     "setup_commands": []
   },
   "problem": {

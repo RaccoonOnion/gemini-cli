@@ -3,10 +3,8 @@
   "repository": {
     "name": "rust-lang/rust",
     "commit_sha": "TODO_PIN_COMMIT",
-    "languages": [
-      "rust"
-    ],
-    "loc": 0,
+    "languages": ["rust"],
+    "loc": 21643275,
     "setup_commands": []
   },
   "problem": {
@@ -24,9 +22,7 @@
       "tests/ui/traits/self-referential-param-env-normalization.stderr"
     ],
     "estimated_context_tokens": 1600,
-    "anti_shortcut_tags": [
-      "multi_solution"
-    ]
+    "anti_shortcut_tags": ["multi_solution"]
   },
   "ground_truth": {
     "gold_patch": "TODO: extract from PR #153574",

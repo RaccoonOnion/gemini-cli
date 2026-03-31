@@ -3,10 +3,8 @@
   "repository": {
     "name": "rust-lang/rust",
     "commit_sha": "TODO_PIN_COMMIT",
-    "languages": [
-      "rust"
-    ],
-    "loc": 0,
+    "languages": ["rust"],
+    "loc": 21643275,
     "setup_commands": []
   },
   "problem": {
@@ -28,9 +26,7 @@
       "src/tools/miri/src/concurrency/thread.rs"
     ],
     "estimated_context_tokens": 7240,
-    "anti_shortcut_tags": [
-      "retrieval_trap"
-    ]
+    "anti_shortcut_tags": ["retrieval_trap"]
   },
   "ground_truth": {
     "gold_patch": "TODO: extract from PR #154582",

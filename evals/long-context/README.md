@@ -1,8 +1,9 @@
 # Long-Context & Complex Reasoning Coding Evaluation
 
 **GSoC 2026 Proof of Concept** |
-[Proposal](https://github.com/google-gemini/gemini-cli/issues/23316) | Ryan
-(Yunxiang) Yan
+[Proposal (PDF)](https://drive.google.com/file/d/1kJTKaUHn05as4saNb-v33WKGFK1uhn8T/view?usp=sharing)
+| [Issue #23316](https://github.com/google-gemini/gemini-cli/issues/23316) |
+Ryan (Yunxiang) Yan
 
 ## What Is This?
 

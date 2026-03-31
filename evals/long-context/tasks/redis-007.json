@@ -3,10 +3,8 @@
   "repository": {
     "name": "redis/redis",
     "commit_sha": "TODO_PIN_COMMIT",
-    "languages": [
-      "c"
-    ],
-    "loc": 0,
+    "languages": ["c"],
+    "loc": 5236500,
     "setup_commands": []
   },
   "problem": {
@@ -29,9 +27,7 @@
   },
   "ground_truth": {
     "gold_patch": "TODO: extract from PR #14897",
-    "test_files": [
-      "tests/unit/type/stream.tcl"
-    ],
+    "test_files": ["tests/unit/type/stream.tcl"],
     "verification_command": "TODO",
     "gold_quality_metrics": {
       "patch_locality_score": 0.0,

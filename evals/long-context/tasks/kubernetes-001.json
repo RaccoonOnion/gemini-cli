@@ -3,10 +3,8 @@
   "repository": {
     "name": "kubernetes/kubernetes",
     "commit_sha": "TODO_PIN_COMMIT",
-    "languages": [
-      "go"
-    ],
-    "loc": 0,
+    "languages": ["go"],
+    "loc": 36529050,
     "setup_commands": []
   },
   "problem": {
@@ -26,9 +24,7 @@
       "test/instrumentation/testdata/stable-metrics-list.yaml"
     ],
     "estimated_context_tokens": 1490,
-    "anti_shortcut_tags": [
-      "retrieval_trap"
-    ]
+    "anti_shortcut_tags": ["retrieval_trap"]
   },
   "ground_truth": {
     "gold_patch": "TODO: extract from PR #136154",

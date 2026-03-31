@@ -3,10 +3,8 @@
   "repository": {
     "name": "redis/redis",
     "commit_sha": "TODO_PIN_COMMIT",
-    "languages": [
-      "unknown"
-    ],
-    "loc": 0,
+    "languages": ["unknown"],
+    "loc": 5236500,
     "setup_commands": []
   },
   "problem": {
@@ -23,15 +21,11 @@
       "tests/unit/introspection-2.tcl"
     ],
     "estimated_context_tokens": 380,
-    "anti_shortcut_tags": [
-      "multi_solution"
-    ]
+    "anti_shortcut_tags": ["multi_solution"]
   },
   "ground_truth": {
     "gold_patch": "TODO: extract from PR #14942",
-    "test_files": [
-      "tests/unit/introspection-2.tcl"
-    ],
+    "test_files": ["tests/unit/introspection-2.tcl"],
     "verification_command": "TODO",
     "gold_quality_metrics": {
       "patch_locality_score": 0.0,
