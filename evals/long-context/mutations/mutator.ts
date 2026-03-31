@@ -10,10 +10,11 @@
  * GSoC 2026 PoC — Ryan (Yunxiang) Yan
  *
  * Adapted from the symbolic perturbation methodology in MathRizz
- * (Yan et al., 2025b), which demonstrated that controlled mutations
- * can create contamination-robust benchmarks. MathRizz showed that
- * models drop from 94.5% to 37.0% accuracy when evaluated on
- * contamination-free equivalents of static benchmarks.
+ * (Yan et al., 2025, unpublished manuscript), which demonstrated that
+ * controlled mutations can create contamination-robust benchmarks.
+ * MathRizz showed that models drop from 94.5% to 37.0% accuracy when
+ * evaluated on contamination-free equivalents of static benchmarks.
+ * See: https://drive.google.com/file/d/1PeXmGG-OduCPuFVvPIMNBkcnyFqZXk_i/view
  *
  * This engine applies the same principle to code: given a "seed task"
  * extracted from a public (potentially memorized) PR, we generate a
@@ -106,7 +107,9 @@ class VariableRenameMutation implements MutationRule {
         const matchCount = (mutated.match(pattern) || []).length;
         if (matchCount > 0) {
           mutated = mutated.replace(pattern, replacement);
-          changes.push(`Renamed '${original}' -> '${replacement}' (${matchCount} occurrences)`);
+          changes.push(
+            `Renamed '${original}' -> '${replacement}' (${matchCount} occurrences)`,
+          );
           count += matchCount;
         }
       }
@@ -203,8 +206,7 @@ class LogicInversionMutation implements MutationRule {
 
     // Only invert comparisons in condition contexts (if, while, ternary)
     // to avoid breaking non-conditional logic
-    const conditionPattern =
-      /\b(if|while|for)\s*\(([^)]+)\)/g;
+    const conditionPattern = /\b(if|while|for)\s*\(([^)]+)\)/g;
 
     mutated = mutated.replace(conditionPattern, (match, keyword, condition) => {
       let newCondition = condition as string;
@@ -213,7 +215,9 @@ class LogicInversionMutation implements MutationRule {
         if (newCondition.includes(original)) {
           // Only apply one inversion per condition to keep changes minimal
           newCondition = newCondition.replace(original, inverted);
-          changes.push(`Inverted '${original}' -> '${inverted}' in ${keyword} condition`);
+          changes.push(
+            `Inverted '${original}' -> '${inverted}' in ${keyword} condition`,
+          );
           count++;
           break; // One inversion per condition
         }
