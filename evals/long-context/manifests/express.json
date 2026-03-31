@@ -1,0 +1,34 @@
+{
+  "repository": "expressjs/express",
+  "description": "Fast, unopinionated, minimalist web framework for Node.js",
+  "languages": ["javascript"],
+  "loc": 120000,
+  "architecture": {
+    "type": "modular",
+    "key_modules": [
+      "lib/application.js",
+      "lib/router",
+      "lib/request.js",
+      "lib/response.js",
+      "lib/middleware"
+    ],
+    "test_directory": "test/",
+    "dependency_graph_notes": "Router is the core component. app.use() mounts middleware via Router.use(). Layer wraps individual handlers. Errors propagate via next(err) through the layer stack. Sub-routers create nested layer stacks."
+  },
+  "setup": {
+    "node_version": ">=18",
+    "commands": [
+      "npm install"
+    ],
+    "test_command": "npm test",
+    "estimated_setup_time_seconds": 30
+  },
+  "selection_scores": {
+    "loc_score": 3,
+    "language_diversity": 1,
+    "maintenance_activity": 5,
+    "architectural_complexity": 4,
+    "test_infrastructure": 5,
+    "total": 18
+  }
+}

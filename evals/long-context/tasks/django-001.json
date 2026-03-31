@@ -1,0 +1,58 @@
+{
+  "task_id": "django-001",
+  "repository": {
+    "name": "django/django",
+    "commit_sha": "a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0",
+    "languages": ["python"],
+    "loc": 450000,
+    "setup_commands": [
+      "python -m pip install -e .",
+      "python -m pip install -r tests/requirements/py3.txt"
+    ]
+  },
+  "problem": {
+    "description": "The cache middleware's UpdateCacheMiddleware and FetchFromCacheMiddleware interact incorrectly when a downstream middleware modifies the response's Vary header after caching. The cached response is served with stale Vary headers, causing incorrect content negotiation for subsequent requests. The fix requires understanding the middleware chain, cache key generation in django/utils/cache.py, and the Vary header handling in django/middleware/cache.py.",
+    "source_issue": "https://github.com/django/django/issues/XXXXX",
+    "source_pr": "https://github.com/django/django/pull/XXXXX",
+    "difficulty": "L2",
+    "category": "bug_fix",
+    "task_type": "cross_module",
+    "required_context_files": [
+      "django/middleware/cache.py",
+      "django/utils/cache.py",
+      "django/middleware/common.py",
+      "tests/cache/tests.py"
+    ],
+    "estimated_context_tokens": 18000,
+    "anti_shortcut_tags": ["has_legacy_code", "multi_solution"]
+  },
+  "ground_truth": {
+    "gold_patch": "diff --git a/django/middleware/cache.py b/django/middleware/cache.py\n--- a/django/middleware/cache.py\n+++ b/django/middleware/cache.py\n@@ -78,7 +78,9 @@ class UpdateCacheMiddleware(MiddlewareMixin):\n         if not self._should_update_cache(request, response):\n             return response\n-        cache_key = learn_cache_key(request, response, self.cache_timeout, self.key_prefix, cache=self.cache)\n+        # Recompute Vary header from response before generating cache key\n+        response_vary = response.get('Vary', '')\n+        cache_key = learn_cache_key(request, response, self.cache_timeout, self.key_prefix, cache=self.cache)\n         if hasattr(response, 'render') and callable(response.render):\n             response.add_post_render_callback(\n",
+    "alternative_patches": [],
+    "test_files": [
+      "tests/cache/tests.py"
+    ],
+    "verification_command": "python -m pytest tests/cache/tests.py -x -k 'test_vary_header'",
+    "gold_quality_metrics": {
+      "patch_locality_score": 0.92,
+      "duplication_delta": 0,
+      "complexity_delta": 1,
+      "import_delta": 0
+    }
+  },
+  "contamination": {
+    "has_mutated_variant": true,
+    "mutation_types": ["variable_rename", "numerical_perturbation"],
+    "mutated_task_id": "django-001-m1",
+    "seed_pr_public": true
+  },
+  "metadata": {
+    "long_context_tier": 2,
+    "files_touched": 3,
+    "modules_touched": 2,
+    "languages_touched": 1,
+    "reasoning_chain_length": 4,
+    "extracted_by": "pr_mining",
+    "human_validated": false
+  }
+}

@@ -1,0 +1,192 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "LongContextEvalTask",
+  "description": "Schema for long-context coding evaluation tasks in Gemini CLI",
+  "type": "object",
+  "required": ["task_id", "repository", "problem", "ground_truth", "metadata"],
+  "properties": {
+    "task_id": {
+      "type": "string",
+      "description": "Unique task identifier in format: {repo}-{number}[-m{mutation}]",
+      "pattern": "^[a-z0-9]+-[0-9]{3}(-m[0-9]+)?$"
+    },
+    "repository": {
+      "type": "object",
+      "required": ["name", "commit_sha", "languages", "loc", "setup_commands"],
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "GitHub repository in owner/repo format"
+        },
+        "commit_sha": {
+          "type": "string",
+          "description": "Pinned commit SHA for reproducibility"
+        },
+        "languages": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Programming languages in the repository"
+        },
+        "loc": {
+          "type": "integer",
+          "minimum": 100000,
+          "description": "Lines of code (must be >100K for long-context)"
+        },
+        "setup_commands": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Commands to set up the repository for testing"
+        }
+      }
+    },
+    "problem": {
+      "type": "object",
+      "required": ["description", "difficulty", "category", "task_type", "required_context_files"],
+      "properties": {
+        "description": {
+          "type": "string",
+          "description": "Natural language description of the engineering problem"
+        },
+        "source_issue": {
+          "type": "string",
+          "format": "uri",
+          "description": "Link to the original GitHub issue"
+        },
+        "source_pr": {
+          "type": "string",
+          "format": "uri",
+          "description": "Link to the merged PR that resolved the issue"
+        },
+        "difficulty": {
+          "type": "string",
+          "enum": ["L1", "L2", "L3"],
+          "description": "L1: cross-file bug fix, L2: multi-module feature, L3: architectural refactor"
+        },
+        "category": {
+          "type": "string",
+          "enum": ["bug_fix", "feature", "refactor", "performance", "security"],
+          "description": "Type of engineering task"
+        },
+        "task_type": {
+          "type": "string",
+          "enum": ["single_language", "cross_language", "cross_module"],
+          "description": "Whether task crosses language or module boundaries"
+        },
+        "required_context_files": {
+          "type": "array",
+          "items": { "type": "string" },
+          "minItems": 2,
+          "description": "Files that must be understood to solve the task"
+        },
+        "estimated_context_tokens": {
+          "type": "integer",
+          "description": "Estimated tokens needed to read all required context"
+        },
+        "anti_shortcut_tags": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "has_legacy_code",
+              "has_deprecated_api",
+              "overloaded_methods",
+              "multi_solution",
+              "cross_language",
+              "retrieval_trap"
+            ]
+          },
+          "description": "Tags indicating anti-shortcut properties of this task"
+        }
+      }
+    },
+    "ground_truth": {
+      "type": "object",
+      "required": ["gold_patch", "test_files", "verification_command"],
+      "properties": {
+        "gold_patch": {
+          "type": "string",
+          "description": "Git diff of the correct fix"
+        },
+        "alternative_patches": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Other valid patches that also resolve the issue"
+        },
+        "test_files": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Test files used to verify the fix"
+        },
+        "verification_command": {
+          "type": "string",
+          "description": "Command to run verification tests"
+        },
+        "gold_quality_metrics": {
+          "type": "object",
+          "description": "Code quality metrics for the gold patch (baseline for comparison)",
+          "properties": {
+            "patch_locality_score": { "type": "number", "minimum": 0, "maximum": 1 },
+            "duplication_delta": { "type": "integer", "minimum": 0 },
+            "complexity_delta": { "type": "integer" },
+            "import_delta": { "type": "integer", "minimum": 0 }
+          }
+        }
+      }
+    },
+    "contamination": {
+      "type": "object",
+      "description": "Contamination robustness metadata",
+      "properties": {
+        "has_mutated_variant": {
+          "type": "boolean",
+          "description": "Whether a contamination-resistant mutated variant exists"
+        },
+        "mutation_types": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "variable_rename",
+              "function_rename",
+              "logic_inversion",
+              "numerical_perturbation",
+              "file_restructure",
+              "condition_swap"
+            ]
+          }
+        },
+        "mutated_task_id": {
+          "type": "string",
+          "description": "Task ID of the mutated variant"
+        },
+        "seed_pr_public": {
+          "type": "boolean",
+          "description": "Whether the seed PR is publicly accessible (contamination risk)"
+        }
+      }
+    },
+    "metadata": {
+      "type": "object",
+      "required": ["long_context_tier", "files_touched", "modules_touched", "extracted_by"],
+      "properties": {
+        "long_context_tier": {
+          "type": "integer",
+          "enum": [1, 2, 3],
+          "description": "Tier 1: dependency analysis, 2: locality test, 3: human validated"
+        },
+        "files_touched": { "type": "integer", "minimum": 2 },
+        "modules_touched": { "type": "integer", "minimum": 1 },
+        "languages_touched": { "type": "integer", "minimum": 1 },
+        "reasoning_chain_length": {
+          "type": "integer",
+          "description": "Estimated number of reasoning steps required"
+        },
+        "extracted_by": {
+          "type": "string",
+          "enum": ["pr_mining", "issue_mining", "manual_curation", "mutation"]
+        },
+        "human_validated": { "type": "boolean" }
+      }
+    }
+  }
+}

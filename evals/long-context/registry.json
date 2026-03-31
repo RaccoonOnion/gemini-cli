@@ -1,0 +1,47 @@
+{
+  "dataset_version": "0.1.0-poc",
+  "description": "Long-Context & Complex Reasoning Coding Evaluation Dataset (PoC)",
+  "author": "Ryan (Yunxiang) Yan <ryan.yunxiang.yan@gmail.com>",
+  "gsoc_issue": "https://github.com/google-gemini/gemini-cli/issues/23316",
+  "repositories": [
+    {
+      "name": "django/django",
+      "manifest": "manifests/django.json",
+      "task_count": 1,
+      "languages": ["python"]
+    },
+    {
+      "name": "expressjs/express",
+      "manifest": "manifests/express.json",
+      "task_count": 1,
+      "languages": ["javascript"]
+    }
+  ],
+  "tasks": [
+    {
+      "task_id": "django-001",
+      "file": "tasks/django-001.json",
+      "repository": "django/django",
+      "difficulty": "L2",
+      "category": "bug_fix",
+      "task_type": "cross_module",
+      "has_mutated_variant": true
+    },
+    {
+      "task_id": "express-001",
+      "file": "tasks/express-001.json",
+      "repository": "expressjs/express",
+      "difficulty": "L2",
+      "category": "bug_fix",
+      "task_type": "cross_module",
+      "has_mutated_variant": false
+    }
+  ],
+  "statistics": {
+    "total_tasks": 2,
+    "total_repositories": 2,
+    "languages": ["python", "javascript"],
+    "difficulty_distribution": { "L1": 0, "L2": 2, "L3": 0 },
+    "category_distribution": { "bug_fix": 2, "feature": 0, "refactor": 0 }
+  }
+}

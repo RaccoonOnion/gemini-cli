@@ -1,0 +1,58 @@
+{
+  "task_id": "express-001",
+  "repository": {
+    "name": "expressjs/express",
+    "commit_sha": "b1c2d3e4f5a6b7c8d9e0f1a2b3c4d5e6f7a8b9c0",
+    "languages": ["javascript"],
+    "loc": 120000,
+    "setup_commands": [
+      "npm install",
+      "npm run build"
+    ]
+  },
+  "problem": {
+    "description": "Express error-handling middleware fails to catch errors thrown in async route handlers when the route uses a sub-router mounted with app.use(). The error propagates as an unhandled promise rejection instead of being caught by the app-level error handler. The fix requires understanding the Router's handle() method in lib/router/index.js, the Layer's handle_request() in lib/router/layer.js, and how errors bubble through nested routers via next(err).",
+    "source_issue": "https://github.com/expressjs/express/issues/XXXXX",
+    "source_pr": "https://github.com/expressjs/express/pull/XXXXX",
+    "difficulty": "L2",
+    "category": "bug_fix",
+    "task_type": "cross_module",
+    "required_context_files": [
+      "lib/router/index.js",
+      "lib/router/layer.js",
+      "lib/router/route.js",
+      "lib/application.js",
+      "test/app.use.js"
+    ],
+    "estimated_context_tokens": 22000,
+    "anti_shortcut_tags": ["overloaded_methods", "has_legacy_code"]
+  },
+  "ground_truth": {
+    "gold_patch": "diff --git a/lib/router/layer.js b/lib/router/layer.js\n--- a/lib/router/layer.js\n+++ b/lib/router/layer.js\n@@ -86,6 +86,11 @@ Layer.prototype.handle_request = function handle(req, res, next) {\n   try {\n     fn(req, res, next);\n+    // If fn returns a promise (async handler), catch rejections\n+    var result = fn(req, res, next);\n+    if (result && typeof result.catch === 'function') {\n+      result.catch(next);\n+    }\n   } catch (err) {\n     next(err);\n   }\n",
+    "alternative_patches": [],
+    "test_files": [
+      "test/app.use.js",
+      "test/Router.js"
+    ],
+    "verification_command": "npm test -- --grep 'async error'",
+    "gold_quality_metrics": {
+      "patch_locality_score": 0.85,
+      "duplication_delta": 0,
+      "complexity_delta": 2,
+      "import_delta": 0
+    }
+  },
+  "contamination": {
+    "has_mutated_variant": false,
+    "seed_pr_public": true
+  },
+  "metadata": {
+    "long_context_tier": 2,
+    "files_touched": 4,
+    "modules_touched": 2,
+    "languages_touched": 1,
+    "reasoning_chain_length": 5,
+    "extracted_by": "pr_mining",
+    "human_validated": false
+  }
+}
