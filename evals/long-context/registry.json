@@ -1,47 +1,396 @@
 {
-  "dataset_version": "0.1.0-poc",
+  "dataset_version": "0.2.0-poc",
   "description": "Long-Context & Complex Reasoning Coding Evaluation Dataset (PoC)",
   "author": "Ryan (Yunxiang) Yan <ryan.yunxiang.yan@gmail.com>",
   "gsoc_issue": "https://github.com/google-gemini/gemini-cli/issues/23316",
   "repositories": [
     {
       "name": "django/django",
-      "manifest": "manifests/django.json",
-      "task_count": 1,
-      "languages": ["python"]
+      "manifest": "manifests/django_django.json",
+      "languages": [
+        "python"
+      ],
+      "score": 16
+    },
+    {
+      "name": "tiangolo/fastapi",
+      "manifest": "manifests/tiangolo_fastapi.json",
+      "languages": [
+        "python"
+      ],
+      "score": 16
+    },
+    {
+      "name": "scikit-learn/scikit-learn",
+      "manifest": "manifests/scikit-learn_scikit-learn.json",
+      "languages": [
+        "python"
+      ],
+      "score": 16
+    },
+    {
+      "name": "pandas-dev/pandas",
+      "manifest": "manifests/pandas-dev_pandas.json",
+      "languages": [
+        "python"
+      ],
+      "score": 16
+    },
+    {
+      "name": "pytorch/pytorch",
+      "manifest": "manifests/pytorch_pytorch.json",
+      "languages": [
+        "python"
+      ],
+      "score": 16
+    },
+    {
+      "name": "huggingface/transformers",
+      "manifest": "manifests/huggingface_transformers.json",
+      "languages": [
+        "python"
+      ],
+      "score": 16
+    },
+    {
+      "name": "ansible/ansible",
+      "manifest": "manifests/ansible_ansible.json",
+      "languages": [
+        "python"
+      ],
+      "score": 16
+    },
+    {
+      "name": "celery/celery",
+      "manifest": "manifests/celery_celery.json",
+      "languages": [
+        "python"
+      ],
+      "score": 16
+    },
+    {
+      "name": "microsoft/TypeScript",
+      "manifest": "manifests/microsoft_TypeScript.json",
+      "languages": [
+        "typescript"
+      ],
+      "score": 16
+    },
+    {
+      "name": "microsoft/vscode",
+      "manifest": "manifests/microsoft_vscode.json",
+      "languages": [
+        "typescript"
+      ],
+      "score": 16
+    },
+    {
+      "name": "vercel/next.js",
+      "manifest": "manifests/vercel_next.js.json",
+      "languages": [
+        "typescript"
+      ],
+      "score": 16
+    },
+    {
+      "name": "vitejs/vite",
+      "manifest": "manifests/vitejs_vite.json",
+      "languages": [
+        "typescript"
+      ],
+      "score": 16
+    },
+    {
+      "name": "prisma/prisma",
+      "manifest": "manifests/prisma_prisma.json",
+      "languages": [
+        "typescript"
+      ],
+      "score": 16
+    },
+    {
+      "name": "grafana/grafana",
+      "manifest": "manifests/grafana_grafana.json",
+      "languages": [
+        "typescript"
+      ],
+      "score": 16
+    },
+    {
+      "name": "n8n-io/n8n",
+      "manifest": "manifests/n8n-io_n8n.json",
+      "languages": [
+        "typescript"
+      ],
+      "score": 16
+    },
+    {
+      "name": "supabase/supabase",
+      "manifest": "manifests/supabase_supabase.json",
+      "languages": [
+        "typescript"
+      ],
+      "score": 16
+    },
+    {
+      "name": "webpack/webpack",
+      "manifest": "manifests/webpack_webpack.json",
+      "languages": [
+        "javascript"
+      ],
+      "score": 16
+    },
+    {
+      "name": "facebook/react",
+      "manifest": "manifests/facebook_react.json",
+      "languages": [
+        "javascript"
+      ],
+      "score": 16
+    },
+    {
+      "name": "nodejs/node",
+      "manifest": "manifests/nodejs_node.json",
+      "languages": [
+        "javascript"
+      ],
+      "score": 16
+    },
+    {
+      "name": "mrdoob/three.js",
+      "manifest": "manifests/mrdoob_three.js.json",
+      "languages": [
+        "javascript"
+      ],
+      "score": 16
+    },
+    {
+      "name": "socketio/socket.io",
+      "manifest": "manifests/socketio_socket.io.json",
+      "languages": [
+        "javascript"
+      ],
+      "score": 16
+    },
+    {
+      "name": "kubernetes/kubernetes",
+      "manifest": "manifests/kubernetes_kubernetes.json",
+      "languages": [
+        "go"
+      ],
+      "score": 16
+    },
+    {
+      "name": "golang/go",
+      "manifest": "manifests/golang_go.json",
+      "languages": [
+        "go"
+      ],
+      "score": 16
+    },
+    {
+      "name": "hashicorp/terraform",
+      "manifest": "manifests/hashicorp_terraform.json",
+      "languages": [
+        "go"
+      ],
+      "score": 16
+    },
+    {
+      "name": "prometheus/prometheus",
+      "manifest": "manifests/prometheus_prometheus.json",
+      "languages": [
+        "go"
+      ],
+      "score": 16
+    },
+    {
+      "name": "etcd-io/etcd",
+      "manifest": "manifests/etcd-io_etcd.json",
+      "languages": [
+        "go"
+      ],
+      "score": 16
+    },
+    {
+      "name": "rust-lang/rust",
+      "manifest": "manifests/rust-lang_rust.json",
+      "languages": [
+        "rust"
+      ],
+      "score": 16
+    },
+    {
+      "name": "denoland/deno",
+      "manifest": "manifests/denoland_deno.json",
+      "languages": [
+        "rust"
+      ],
+      "score": 16
+    },
+    {
+      "name": "tauri-apps/tauri",
+      "manifest": "manifests/tauri-apps_tauri.json",
+      "languages": [
+        "rust"
+      ],
+      "score": 16
+    },
+    {
+      "name": "astral-sh/ruff",
+      "manifest": "manifests/astral-sh_ruff.json",
+      "languages": [
+        "rust"
+      ],
+      "score": 16
+    },
+    {
+      "name": "redis/redis",
+      "manifest": "manifests/redis_redis.json",
+      "languages": [
+        "c_cpp"
+      ],
+      "score": 16
+    },
+    {
+      "name": "nginx/nginx",
+      "manifest": "manifests/nginx_nginx.json",
+      "languages": [
+        "c_cpp"
+      ],
+      "score": 16
+    },
+    {
+      "name": "curl/curl",
+      "manifest": "manifests/curl_curl.json",
+      "languages": [
+        "c_cpp"
+      ],
+      "score": 16
+    },
+    {
+      "name": "postgres/postgres",
+      "manifest": "manifests/postgres_postgres.json",
+      "languages": [
+        "c_cpp"
+      ],
+      "score": 16
+    },
+    {
+      "name": "spring-projects/spring-boot",
+      "manifest": "manifests/spring-projects_spring-boot.json",
+      "languages": [
+        "java"
+      ],
+      "score": 16
+    },
+    {
+      "name": "elastic/elasticsearch",
+      "manifest": "manifests/elastic_elasticsearch.json",
+      "languages": [
+        "java"
+      ],
+      "score": 16
+    },
+    {
+      "name": "apache/kafka",
+      "manifest": "manifests/apache_kafka.json",
+      "languages": [
+        "java"
+      ],
+      "score": 16
+    },
+    {
+      "name": "google/guava",
+      "manifest": "manifests/google_guava.json",
+      "languages": [
+        "java"
+      ],
+      "score": 16
+    },
+    {
+      "name": "ReactiveX/RxJava",
+      "manifest": "manifests/ReactiveX_RxJava.json",
+      "languages": [
+        "java"
+      ],
+      "score": 16
+    },
+    {
+      "name": "pallets/flask",
+      "manifest": "manifests/pallets_flask.json",
+      "languages": [
+        "python"
+      ],
+      "score": 15
+    },
+    {
+      "name": "psf/requests",
+      "manifest": "manifests/psf_requests.json",
+      "languages": [
+        "python"
+      ],
+      "score": 15
     },
     {
       "name": "expressjs/express",
-      "manifest": "manifests/express.json",
-      "task_count": 1,
-      "languages": ["javascript"]
-    }
-  ],
-  "tasks": [
-    {
-      "task_id": "django-001",
-      "file": "tasks/django-001.json",
-      "repository": "django/django",
-      "difficulty": "L2",
-      "category": "bug_fix",
-      "task_type": "cross_module",
-      "has_mutated_variant": true
+      "manifest": "manifests/expressjs_express.json",
+      "languages": [
+        "javascript"
+      ],
+      "score": 15
     },
     {
-      "task_id": "express-001",
-      "file": "tasks/express-001.json",
-      "repository": "expressjs/express",
-      "difficulty": "L2",
-      "category": "bug_fix",
-      "task_type": "cross_module",
-      "has_mutated_variant": false
+      "name": "docker/cli",
+      "manifest": "manifests/docker_cli.json",
+      "languages": [
+        "go"
+      ],
+      "score": 15
+    },
+    {
+      "name": "tokio-rs/tokio",
+      "manifest": "manifests/tokio-rs_tokio.json",
+      "languages": [
+        "rust"
+      ],
+      "score": 15
+    },
+    {
+      "name": "sqlite/sqlite",
+      "manifest": "manifests/sqlite_sqlite.json",
+      "languages": [
+        "c_cpp"
+      ],
+      "score": 15
     }
   ],
+  "tasks": [],
   "statistics": {
-    "total_tasks": 2,
-    "total_repositories": 2,
-    "languages": ["python", "javascript"],
-    "difficulty_distribution": { "L1": 0, "L2": 2, "L3": 0 },
-    "category_distribution": { "bug_fix": 2, "feature": 0, "refactor": 0 }
+    "total_repositories": 45,
+    "languages": [
+      "python",
+      "typescript",
+      "javascript",
+      "go",
+      "rust",
+      "c_cpp",
+      "java"
+    ],
+    "language_distribution": {
+      "python": 10,
+      "typescript": 8,
+      "javascript": 6,
+      "go": 6,
+      "rust": 5,
+      "c_cpp": 5,
+      "java": 5
+    },
+    "score_distribution": {
+      ">=18": 0,
+      "15-17": 45,
+      "12-14": 45,
+      "<12": 0
+    }
   }
 }

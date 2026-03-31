@@ -1,0 +1,61 @@
+{
+  "task_id": "rust-006",
+  "repository": {
+    "name": "rust-lang/rust",
+    "commit_sha": "TODO_PIN_COMMIT",
+    "languages": [
+      "rust"
+    ],
+    "loc": 0,
+    "setup_commands": []
+  },
+  "problem": {
+    "description": "Avoid ICE when param-env normalization leaves unresolved inference variables",
+    "source_pr": "https://github.com/rust-lang/rust/pull/153574",
+    "difficulty": "L3",
+    "category": "bug_fix",
+    "task_type": "cross_module",
+    "required_context_files": [
+      "compiler/rustc_trait_selection/src/traits/mod.rs",
+      "tests/crashes/120033.rs",
+      "tests/ui/traits/non_lifetime_binders/normalized-param-env-unconstrained-type-120033.rs",
+      "tests/ui/traits/non_lifetime_binders/normalized-param-env-unconstrained-type-120033.stderr",
+      "tests/ui/traits/self-referential-param-env-normalization.rs",
+      "tests/ui/traits/self-referential-param-env-normalization.stderr"
+    ],
+    "estimated_context_tokens": 1600,
+    "anti_shortcut_tags": [
+      "multi_solution"
+    ]
+  },
+  "ground_truth": {
+    "gold_patch": "TODO: extract from PR #153574",
+    "test_files": [
+      "tests/crashes/120033.rs",
+      "tests/ui/traits/non_lifetime_binders/normalized-param-env-unconstrained-type-120033.rs",
+      "tests/ui/traits/non_lifetime_binders/normalized-param-env-unconstrained-type-120033.stderr",
+      "tests/ui/traits/self-referential-param-env-normalization.rs",
+      "tests/ui/traits/self-referential-param-env-normalization.stderr"
+    ],
+    "verification_command": "TODO",
+    "gold_quality_metrics": {
+      "patch_locality_score": 0.0,
+      "duplication_delta": 0,
+      "complexity_delta": 0,
+      "import_delta": 0
+    }
+  },
+  "contamination": {
+    "has_mutated_variant": false,
+    "seed_pr_public": true
+  },
+  "metadata": {
+    "long_context_tier": 1,
+    "files_touched": 6,
+    "modules_touched": 3,
+    "languages_touched": 1,
+    "reasoning_chain_length": 3,
+    "extracted_by": "pr_mining",
+    "human_validated": false
+  }
+}

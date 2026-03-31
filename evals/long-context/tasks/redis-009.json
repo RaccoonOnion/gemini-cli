@@ -1,0 +1,56 @@
+{
+  "task_id": "redis-009",
+  "repository": {
+    "name": "redis/redis",
+    "commit_sha": "TODO_PIN_COMMIT",
+    "languages": [
+      "unknown"
+    ],
+    "loc": 0,
+    "setup_commands": []
+  },
+  "problem": {
+    "description": "Fix COMMAND GETKEYS for PFMERGE with no source keys",
+    "source_pr": "https://github.com/redis/redis/pull/14942",
+    "difficulty": "L2",
+    "category": "bug_fix",
+    "task_type": "cross_module",
+    "required_context_files": [
+      "src/commands.def",
+      "src/commands/pfmerge.json",
+      "src/db.c",
+      "src/server.h",
+      "tests/unit/introspection-2.tcl"
+    ],
+    "estimated_context_tokens": 380,
+    "anti_shortcut_tags": [
+      "multi_solution"
+    ]
+  },
+  "ground_truth": {
+    "gold_patch": "TODO: extract from PR #14942",
+    "test_files": [
+      "tests/unit/introspection-2.tcl"
+    ],
+    "verification_command": "TODO",
+    "gold_quality_metrics": {
+      "patch_locality_score": 0.0,
+      "duplication_delta": 0,
+      "complexity_delta": 0,
+      "import_delta": 0
+    }
+  },
+  "contamination": {
+    "has_mutated_variant": false,
+    "seed_pr_public": true
+  },
+  "metadata": {
+    "long_context_tier": 1,
+    "files_touched": 5,
+    "modules_touched": 3,
+    "languages_touched": 1,
+    "reasoning_chain_length": 3,
+    "extracted_by": "pr_mining",
+    "human_validated": false
+  }
+}

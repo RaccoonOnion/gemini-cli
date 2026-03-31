@@ -1,0 +1,70 @@
+{
+  "task_id": "kubernetes-002",
+  "repository": {
+    "name": "kubernetes/kubernetes",
+    "commit_sha": "TODO_PIN_COMMIT",
+    "languages": [
+      "go"
+    ],
+    "loc": 0,
+    "setup_commands": []
+  },
+  "problem": {
+    "description": "[PodLevelResourceManagers] Pod Level Resource Managers - Alpha",
+    "source_pr": "https://github.com/kubernetes/kubernetes/pull/134768",
+    "difficulty": "L2",
+    "category": "bug_fix",
+    "task_type": "cross_module",
+    "required_context_files": [
+      "pkg/features/kube_features.go",
+      "pkg/kubelet/cm/admission/errors.go",
+      "pkg/kubelet/cm/container_manager_linux.go",
+      "pkg/kubelet/cm/container_manager_linux_test.go",
+      "pkg/kubelet/cm/cpumanager/cpu_manager.go",
+      "pkg/kubelet/cm/cpumanager/cpu_manager_test.go",
+      "pkg/kubelet/cm/cpumanager/fake_cpu_manager.go",
+      "pkg/kubelet/cm/cpumanager/policy.go",
+      "pkg/kubelet/cm/cpumanager/policy_none.go",
+      "pkg/kubelet/cm/cpumanager/policy_static.go"
+    ],
+    "estimated_context_tokens": 53630,
+    "anti_shortcut_tags": [
+      "retrieval_trap"
+    ]
+  },
+  "ground_truth": {
+    "gold_patch": "TODO: extract from PR #134768",
+    "test_files": [
+      "pkg/kubelet/cm/container_manager_linux_test.go",
+      "pkg/kubelet/cm/cpumanager/cpu_manager_test.go",
+      "pkg/kubelet/cm/cpumanager/policy_static_restore_test.go",
+      "pkg/kubelet/cm/cpumanager/policy_static_test.go",
+      "pkg/kubelet/cm/cpumanager/state/state_checkpoint_test.go",
+      "pkg/kubelet/cm/cpumanager/topology_hints_test.go",
+      "pkg/kubelet/cm/devicemanager/topology_hints_test.go",
+      "pkg/kubelet/cm/memorymanager/memory_manager_test.go",
+      "pkg/kubelet/cm/memorymanager/policy_static_restore_test.go",
+      "pkg/kubelet/cm/memorymanager/policy_static_test.go"
+    ],
+    "verification_command": "TODO",
+    "gold_quality_metrics": {
+      "patch_locality_score": 0.0,
+      "duplication_delta": 0,
+      "complexity_delta": 0,
+      "import_delta": 0
+    }
+  },
+  "contamination": {
+    "has_mutated_variant": false,
+    "seed_pr_public": true
+  },
+  "metadata": {
+    "long_context_tier": 1,
+    "files_touched": 30,
+    "modules_touched": 2,
+    "languages_touched": 1,
+    "reasoning_chain_length": 2,
+    "extracted_by": "pr_mining",
+    "human_validated": false
+  }
+}

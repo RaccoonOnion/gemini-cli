@@ -1,0 +1,63 @@
+{
+  "task_id": "rust-003",
+  "repository": {
+    "name": "rust-lang/rust",
+    "commit_sha": "TODO_PIN_COMMIT",
+    "languages": [
+      "rust"
+    ],
+    "loc": 0,
+    "setup_commands": []
+  },
+  "problem": {
+    "description": "Rollup of 9 pull requests",
+    "source_pr": "https://github.com/rust-lang/rust/pull/154633",
+    "difficulty": "L3",
+    "category": "bug_fix",
+    "task_type": "cross_module",
+    "required_context_files": [
+      "Cargo.lock",
+      "compiler/rustc_codegen_ssa/src/back/symbol_export.rs",
+      "compiler/rustc_trait_selection/src/error_reporting/traits/fulfillment_errors.rs",
+      "compiler/rustc_trait_selection/src/error_reporting/traits/suggestions.rs",
+      "compiler/rustc_trait_selection/src/traits/mod.rs",
+      "library/alloc/Cargo.toml",
+      "library/compiler-builtins/builtins-shim/Cargo.toml",
+      "library/compiler-builtins/compiler-builtins/Cargo.toml",
+      "src/tools/miri/.github/workflows/ci.yml",
+      "src/tools/miri/CONTRIBUTING.md"
+    ],
+    "estimated_context_tokens": 7750,
+    "anti_shortcut_tags": [
+      "multi_solution",
+      "retrieval_trap"
+    ]
+  },
+  "ground_truth": {
+    "gold_patch": "TODO: extract from PR #154633",
+    "test_files": [
+      "src/tools/miri/tests/fail-dep/libc/env-set_var-data-race.rs",
+      "src/tools/miri/tests/fail-dep/libc/env-set_var-data-race.stderr"
+    ],
+    "verification_command": "TODO",
+    "gold_quality_metrics": {
+      "patch_locality_score": 0.0,
+      "duplication_delta": 0,
+      "complexity_delta": 0,
+      "import_delta": 0
+    }
+  },
+  "contamination": {
+    "has_mutated_variant": false,
+    "seed_pr_public": true
+  },
+  "metadata": {
+    "long_context_tier": 1,
+    "files_touched": 30,
+    "modules_touched": 6,
+    "languages_touched": 1,
+    "reasoning_chain_length": 6,
+    "extracted_by": "pr_mining",
+    "human_validated": false
+  }
+}

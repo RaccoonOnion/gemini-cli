@@ -1,0 +1,69 @@
+{
+  "task_id": "rust-005",
+  "repository": {
+    "name": "rust-lang/rust",
+    "commit_sha": "TODO_PIN_COMMIT",
+    "languages": [
+      "rust"
+    ],
+    "loc": 0,
+    "setup_commands": []
+  },
+  "problem": {
+    "description": "miri subtree update",
+    "source_pr": "https://github.com/rust-lang/rust/pull/154582",
+    "difficulty": "L2",
+    "category": "bug_fix",
+    "task_type": "cross_module",
+    "required_context_files": [
+      "Cargo.lock",
+      "src/tools/miri/.github/workflows/ci.yml",
+      "src/tools/miri/CONTRIBUTING.md",
+      "src/tools/miri/cargo-miri/Cargo.lock",
+      "src/tools/miri/cargo-miri/Cargo.toml",
+      "src/tools/miri/ci/ci.sh",
+      "src/tools/miri/miri-script/src/commands.rs",
+      "src/tools/miri/miri-script/src/main.rs",
+      "src/tools/miri/rust-version",
+      "src/tools/miri/src/concurrency/thread.rs"
+    ],
+    "estimated_context_tokens": 7240,
+    "anti_shortcut_tags": [
+      "retrieval_trap"
+    ]
+  },
+  "ground_truth": {
+    "gold_patch": "TODO: extract from PR #154582",
+    "test_files": [
+      "src/tools/miri/tests/fail-dep/libc/env-set_var-data-race.rs",
+      "src/tools/miri/tests/fail-dep/libc/env-set_var-data-race.stderr",
+      "src/tools/miri/tests/fail-dep/libc/fs/mkstemp_immutable_arg.rs",
+      "src/tools/miri/tests/fail-dep/libc/fs/unix_open_missing_required_mode.rs",
+      "src/tools/miri/tests/fail-dep/libc/fs/unix_open_missing_required_mode.stderr",
+      "src/tools/miri/tests/fail/function_pointers/abi_mismatch_return_type.rs",
+      "src/tools/miri/tests/fail/validity/cast_fn_ptr_invalid_caller_arg.rs",
+      "src/tools/miri/tests/native-lib/pass/ptr_write_access.rs",
+      "src/tools/miri/tests/native-lib/pass/scalar_arguments.rs"
+    ],
+    "verification_command": "TODO",
+    "gold_quality_metrics": {
+      "patch_locality_score": 0.0,
+      "duplication_delta": 0,
+      "complexity_delta": 0,
+      "import_delta": 0
+    }
+  },
+  "contamination": {
+    "has_mutated_variant": false,
+    "seed_pr_public": true
+  },
+  "metadata": {
+    "long_context_tier": 1,
+    "files_touched": 30,
+    "modules_touched": 2,
+    "languages_touched": 1,
+    "reasoning_chain_length": 2,
+    "extracted_by": "pr_mining",
+    "human_validated": false
+  }
+}

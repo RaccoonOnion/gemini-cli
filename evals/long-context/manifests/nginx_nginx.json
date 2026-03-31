@@ -1,0 +1,26 @@
+{
+  "repository": "nginx/nginx",
+  "description": "The official NGINX Open Source repository.",
+  "languages": [
+    "c_cpp"
+  ],
+  "estimated_loc": 1884200,
+  "architecture": {
+    "type": "monolith",
+    "key_modules": [],
+    "test_directory": "tests/",
+    "dependency_graph_notes": "TODO: fill during community bonding"
+  },
+  "setup": {
+    "commands": [],
+    "test_command": "",
+    "estimated_setup_time_seconds": 60
+  },
+  "selection_scores": {
+    "loc_score": 5,
+    "maintenance_activity": 1,
+    "architectural_complexity": 5,
+    "test_infrastructure": 5,
+    "total": 16
+  }
+}

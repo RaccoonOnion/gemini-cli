@@ -1,0 +1,53 @@
+{
+  "task_id": "rust-004",
+  "repository": {
+    "name": "rust-lang/rust",
+    "commit_sha": "TODO_PIN_COMMIT",
+    "languages": [
+      "rust"
+    ],
+    "loc": 0,
+    "setup_commands": []
+  },
+  "problem": {
+    "description": "Skip suggestions pointing to macro def for assert_eq",
+    "source_pr": "https://github.com/rust-lang/rust/pull/154551",
+    "difficulty": "L1",
+    "category": "bug_fix",
+    "task_type": "cross_module",
+    "required_context_files": [
+      "compiler/rustc_trait_selection/src/error_reporting/traits/suggestions.rs",
+      "tests/ui/macros/assert-ne-no-invalid-help-issue-146204.rs",
+      "tests/ui/macros/assert-ne-no-invalid-help-issue-146204.stderr"
+    ],
+    "estimated_context_tokens": 1120,
+    "anti_shortcut_tags": []
+  },
+  "ground_truth": {
+    "gold_patch": "TODO: extract from PR #154551",
+    "test_files": [
+      "tests/ui/macros/assert-ne-no-invalid-help-issue-146204.rs",
+      "tests/ui/macros/assert-ne-no-invalid-help-issue-146204.stderr"
+    ],
+    "verification_command": "TODO",
+    "gold_quality_metrics": {
+      "patch_locality_score": 0.0,
+      "duplication_delta": 0,
+      "complexity_delta": 0,
+      "import_delta": 0
+    }
+  },
+  "contamination": {
+    "has_mutated_variant": false,
+    "seed_pr_public": true
+  },
+  "metadata": {
+    "long_context_tier": 1,
+    "files_touched": 3,
+    "modules_touched": 2,
+    "languages_touched": 1,
+    "reasoning_chain_length": 2,
+    "extracted_by": "pr_mining",
+    "human_validated": false
+  }
+}

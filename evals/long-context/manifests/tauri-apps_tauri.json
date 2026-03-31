@@ -1,0 +1,26 @@
+{
+  "repository": "tauri-apps/tauri",
+  "description": "Build smaller, faster, and more secure desktop and mobile applications with a web frontend.",
+  "languages": [
+    "rust"
+  ],
+  "estimated_loc": 2569250,
+  "architecture": {
+    "type": "monolith",
+    "key_modules": [],
+    "test_directory": "tests/",
+    "dependency_graph_notes": "TODO: fill during community bonding"
+  },
+  "setup": {
+    "commands": [],
+    "test_command": "",
+    "estimated_setup_time_seconds": 60
+  },
+  "selection_scores": {
+    "loc_score": 5,
+    "maintenance_activity": 1,
+    "architectural_complexity": 5,
+    "test_infrastructure": 5,
+    "total": 16
+  }
+}
